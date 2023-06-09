@@ -1,2 +1,2 @@
+require("marces.set")
 require("marces.remap")
-print("Hello from Marces!")
