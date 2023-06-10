@@ -1,18 +1,15 @@
 return {
-  { 'rose-pine/neovim',     name = 'rose-pine', tag = 'v1.1.0', priority = 1000 },
+  { 'rose-pine/neovim',            name = 'rose-pine',                                  tag = 'v1.1.0', priority = 1000 },
   { 'nvim-lua/plenary.nvim' },
+  { 'nvim-tree/nvim-web-devicons', config = true },
+  { 'nvim-treesitter/playground',  dependencies = { 'nvim-treesitter/nvim-treesitter' } },
+  { 'mbbill/undotree',             keys = { { "<leader>u", vim.cmd.UndotreeToggle } } },
+  { 'tpope/vim-fugitive',          keys = { { "<leader>gs", vim.cmd.Git } } },
   {
-    'nvim-telescope/telescope.nvim',
-    tag = '0.1.1',
+    'nvim-lualine/lualine.nvim',
+    opts = {},
     dependencies = {
-      'nvim-lua/plenary.nvim' }
+      'nvim-tree/nvim-web-devicons' }
   },
-  { 'nvim-treesitter/nvim-treesitter', build = ':TSUpdate' },
-  { 'nvim-treesitter/playground' },
-  { 'theprimeagen/harpoon' },
-  { 'mbbill/undotree' },
-  { 'tpope/vim-fugitive' },
-  { 'nvim-lualine/lualine.nvim',       opts = {},          dependencies = { 'nvim-tree/nvim-web-devicons' } },
-  { 'lewis6991/gitsigns.nvim',         config = true,      tag = 'release' },
-  { 'nvim-tree/nvim-web-devicons',     config = true },
+  { 'lewis6991/gitsigns.nvim', config = true, tag = 'release' },
 }
