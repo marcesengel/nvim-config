@@ -2,6 +2,17 @@ return {
   {
     'nvim-telescope/telescope.nvim',
     config = function()
+      require('telescope').setup {
+        pickers = {
+          find_files = {
+            hidden = true
+          },
+          grep_string = {
+            hidden = true
+          }
+        }
+      }
+
       local builtin = require('telescope.builtin')
       vim.keymap.set('n', '<C-p>', builtin.find_files, {})
       vim.keymap.set('n', '<leader>pf', builtin.git_files, {})
