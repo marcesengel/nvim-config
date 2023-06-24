@@ -4,8 +4,14 @@ return {
   { 'nvim-lua/plenary.nvim' },
   { 'nvim-tree/nvim-web-devicons',                 config = true },
   { 'nvim-treesitter/playground',                  dependencies = { 'nvim-treesitter/nvim-treesitter' } },
-  { 'mbbill/undotree',                             keys = { { "<leader>u", vim.cmd.UndotreeToggle } } },
-  { 'tpope/vim-fugitive',                          keys = { { "<leader>gs", vim.cmd.Git } } },
+  {
+    'windwp/nvim-ts-autotag',
+    dependencies = {
+      'nvim-treesitter/nvim-treesitter' },
+    config = true
+  },
+  { 'mbbill/undotree',    keys = { { "<leader>u", vim.cmd.UndotreeToggle } } },
+  { 'tpope/vim-fugitive', keys = { { "<leader>gs", vim.cmd.Git } } },
   {
     'nvim-lualine/lualine.nvim',
     opts = {},
