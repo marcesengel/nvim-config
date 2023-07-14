@@ -29,6 +29,7 @@ vim.keymap.set('n', '<A-c>', '<Cmd>BufferClose<CR>', opts)
 --                 :BufferCloseAllButCurrentOrPinned
 --                 :BufferCloseBuffersLeft
 --                 :BufferCloseBuffersRight
+vim.keymap.set('n', '<A-w>', '<Cmd>BufferCloseAllButCurrentOrPinned<CR>', opts)
 -- Magic buffer-picking mode
 -- vim.keymap.set('n', '<C-p>', '<Cmd>BufferPick<CR>', opts)
 -- Sort automatically by...
