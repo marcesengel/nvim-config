@@ -25,4 +25,13 @@ return {
       'nvim-tree/nvim-web-devicons' }
   },
   { 'lewis6991/gitsigns.nvim', config = true, tag = 'release' },
+  {
+    'kylechui/nvim-surround',
+    version = '*',
+    event = 'VeryLazy',
+    config = function()
+      require('nvim-surround').setup({
+      })
+    end
+  }
 }
