@@ -24,7 +24,7 @@ return {
     dependencies = {
       'nvim-tree/nvim-web-devicons' }
   },
-  { 'lewis6991/gitsigns.nvim', config = true, tag = 'release' },
+  { 'lewis6991/gitsigns.nvim',            config = true,                      tag = 'release' },
   {
     'kylechui/nvim-surround',
     version = '*',
@@ -33,5 +33,7 @@ return {
       require('nvim-surround').setup({
       })
     end
-  }
+  },
+  { 'chrisgrieser/nvim-various-textobjs', opts = { useDefaultKeymaps = true } },
+  { 'ThePrimeagen/vim-be-good' },
 }
