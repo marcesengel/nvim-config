@@ -1,6 +1,10 @@
 return {
   { 'christianchiarulli/nvcode-color-schemes.vim', priority = 1000 },
-  { 'xiyaowong/transparent.nvim',                  config = true,  priority = 999 },
+  {
+    'tpope/vim-eunuch',
+    cmd = { 'Remove', 'Delete', 'Move', 'Rename', 'Copy', 'Duplicate', 'Chmod', 'Mkdir', 'Cfind', 'Clocate', 'Lfind',
+      'Llocate', 'Wall', 'SudoWrite', 'SudoEdit' }
+  },
   { 'nvim-lua/plenary.nvim' },
   { 'nvim-tree/nvim-web-devicons',                 config = true },
   {
