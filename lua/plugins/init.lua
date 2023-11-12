@@ -1,10 +1,5 @@
 return {
   { 'christianchiarulli/nvcode-color-schemes.vim', priority = 1000 },
-  {
-    'tpope/vim-eunuch',
-    cmd = { 'Remove', 'Delete', 'Move', 'Rename', 'Copy', 'Duplicate', 'Chmod', 'Mkdir', 'Cfind', 'Clocate', 'Lfind',
-      'Llocate', 'Wall', 'SudoWrite', 'SudoEdit' }
-  },
   { 'nvim-lua/plenary.nvim' },
   { 'nvim-tree/nvim-web-devicons',                 config = true },
   {
@@ -40,4 +35,21 @@ return {
   },
   { 'chrisgrieser/nvim-various-textobjs', opts = { useDefaultKeymaps = true } },
   { 'ThePrimeagen/vim-be-good' },
+  {
+    'chrisgrieser/nvim-genghis',
+    dependencies = 'stevearc/dressing.nvim',
+    config = function()
+      local keymap = vim.keymap.set
+      local genghis = require("genghis")
+      keymap("n", "<leader>yp", genghis.copyFilepath)
+      keymap("n", "<leader>yn", genghis.copyFilename)
+      keymap("n", "<leader>cx", genghis.chmodx)
+      keymap("n", "<leader>rf", genghis.renameFile)
+      keymap("n", "<leader>mf", genghis.moveAndRenameFile)
+      keymap("n", "<leader>nf", genghis.createNewFile)
+      keymap("n", "<leader>yf", genghis.duplicateFile)
+      keymap("n", "<leader>df", genghis.trashFile) -- default: "$HOME/.Trash".
+      keymap("x", "<leader>x", genghis.moveSelectionToNewFile)
+    end
+  }
 }
