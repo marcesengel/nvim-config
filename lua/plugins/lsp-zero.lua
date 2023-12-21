@@ -108,7 +108,12 @@ return {
 
           null_ls.setup({
             sources = {
-              null_ls.builtins.formatting.prettierd
+              null_ls.builtins.formatting.prettier.with({
+                bin = 'prettierd',
+                filetypes = {
+                  'javascript', 'typescript', 'typescriptreact', 'json', 'html', 'svelte'
+                }
+              })
             },
           })
         end,
