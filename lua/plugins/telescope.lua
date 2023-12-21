@@ -20,7 +20,7 @@ return {
         builtin.grep_string({ search = vim.fn.input("Grep > ") });
       end)
     end,
-    tag = '0.1.1',
+    tag = '0.1.4',
     dependencies = {
       'nvim-lua/plenary.nvim' }
   },
