@@ -76,6 +76,50 @@ return {
         }
       })
 
+      local lspconfig = require("lspconfig")
+
+      -- eslint
+      local eslint_root_file = {
+        '.eslintrc',
+        '.eslintrc.js',
+        '.eslintrc.cjs',
+        '.eslintrc.yaml',
+        '.eslintrc.yml',
+        '.eslintrc.json',
+        'eslint.config.js',
+        'eslint.config.mjs'
+      }
+
+      local util = require 'lspconfig.util'
+      lspconfig.eslint.setup({
+        root_dir = function(fname)
+          eslint_root_file = util.insert_package_json(eslint_root_file, 'eslintConfig', fname)
+          return util.root_pattern(unpack(eslint_root_file))(fname)
+        end,
+        on_new_config = function(config, new_root_dir)
+          -- The "workspaceFolder" is a VSCode concept. It limits how far the
+          -- server will traverse the file system when locating the ESLint config
+          -- file (e.g., .eslintrc).
+          config.settings.workspaceFolder = {
+            uri = new_root_dir,
+            name = vim.fn.fnamemodify(new_root_dir, ':t'),
+          }
+
+          -- Support flat config
+          if vim.fn.filereadable(new_root_dir .. '/eslint.config.js') == 1
+              or vim.fn.filereadable(new_root_dir .. '/eslint.config.mjs') == 1 then
+            config.settings.experimental.useFlatConfig = true
+          end
+
+          -- Support Yarn2 (PnP) projects
+          local pnp_cjs = util.path.join(new_root_dir, '.pnp.cjs')
+          local pnp_js = util.path.join(new_root_dir, '.pnp.js')
+          if util.path.exists(pnp_cjs) or util.path.exists(pnp_js) then
+            config.cmd = vim.list_extend({ 'yarn', 'exec' }, config.cmd)
+          end
+        end,
+      })
+
       lsp.setup()
 
       vim.diagnostic.config({
