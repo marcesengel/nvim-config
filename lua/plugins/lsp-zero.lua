@@ -149,13 +149,41 @@ return {
         'jose-elias-alvarez/null-ls.nvim',
         config = function()
           local null_ls = require("null-ls")
+          local h = require("null-ls.helpers")
+          local u = require("null-ls.utils")
 
           null_ls.setup({
             sources = {
               null_ls.builtins.formatting.prettier.with({
-                bin = 'prettierd',
+                bin = 'prettier',
                 filetypes = {
                   'javascript', 'typescript', 'typescriptreact', 'json', 'html', 'svelte'
+                },
+                generator_opts = {
+                  command = "prettier",
+                  args = h.range_formatting_args_factory({
+                    "--stdin-filepath",
+                    "$FILENAME",
+                  }, "--range-start", "--range-end", { row_offset = -1, col_offset = -1 }),
+                  to_stdin = true,
+                  dynamic_command = h.cache.by_bufnr(function(params)
+                    return u.path.join(params.root, "node_modules", ".bin", params.command)
+                  end), -- cmd_resolver.from_node_modules(),
+                  cwd = h.cache.by_bufnr(function(params)
+                    return u.root_pattern(
+                    -- https://prettier.io/docs/en/configuration.html
+                      ".prettierrc",
+                      ".prettierrc.json",
+                      ".prettierrc.yml",
+                      ".prettierrc.yaml",
+                      ".prettierrc.json5",
+                      ".prettierrc.js",
+                      ".prettierrc.cjs",
+                      ".prettierrc.toml",
+                      "prettier.config.js",
+                      "prettier.config.cjs"
+                    )(params.bufname)
+                  end),
                 }
               })
             },
