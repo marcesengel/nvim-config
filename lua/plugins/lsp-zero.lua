@@ -72,7 +72,7 @@ return {
         servers = {
           ['lua_ls'] = { 'lua' },
           ['rust_analyzer'] = { 'rust' },
-          ['null-ls'] = { 'typescript', 'typescriptreact', 'javascript', 'json', 'html', 'svelte' }
+          ['null-ls'] = { 'typescript', 'typescriptreact', 'javascript', 'json', 'html', 'svelte', 'go' }
         }
       })
 
@@ -154,6 +154,7 @@ return {
 
           null_ls.setup({
             sources = {
+              null_ls.builtins.formatting.gofmt,
               null_ls.builtins.formatting.prettier.with({
                 bin = 'prettier',
                 filetypes = {
