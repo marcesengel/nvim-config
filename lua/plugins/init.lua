@@ -36,6 +36,17 @@ return {
   { 'chrisgrieser/nvim-various-textobjs', opts = { useDefaultKeymaps = true } },
   { 'ThePrimeagen/vim-be-good' },
   {
+    'stevearc/oil.nvim',
+    opts = {
+      keymaps = {
+        ["<C-p>"] = false,
+        ["<C-v>"] = "actions.preview",
+      }
+    },
+    -- Optional dependencies
+    dependencies = { "nvim-tree/nvim-web-devicons" },
+  },
+  {
     'chrisgrieser/nvim-genghis',
     dependencies = 'stevearc/dressing.nvim',
     config = function()
