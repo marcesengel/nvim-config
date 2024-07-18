@@ -72,7 +72,7 @@ return {
         servers = {
           ['lua_ls'] = { 'lua' },
           ['rust_analyzer'] = { 'rust' },
-          ['null-ls'] = { 'typescript', 'typescriptreact', 'javascript', 'json', 'html', 'svelte', 'go' }
+          ['null-ls'] = { 'typescript', 'typescriptreact', 'javascript', 'json', 'html', 'svelte', 'astro', 'go' }
         }
       })
 
@@ -209,7 +209,7 @@ return {
               null_ls.builtins.formatting.prettier.with({
                 bin = 'prettier',
                 filetypes = {
-                  'javascript', 'typescript', 'typescriptreact', 'json', 'html', 'svelte'
+                  'javascript', 'typescript', 'typescriptreact', 'json', 'html', 'svelte', 'astro'
                 },
                 generator_opts = {
                   command = "prettier",
@@ -231,9 +231,11 @@ return {
                       ".prettierrc.json5",
                       ".prettierrc.js",
                       ".prettierrc.cjs",
+                      ".prettierrc.mjs",
                       ".prettierrc.toml",
                       "prettier.config.js",
-                      "prettier.config.cjs"
+                      "prettier.config.cjs",
+                      "prettier.config.mjs"
                     )(params.bufname)
                   end),
                 }
