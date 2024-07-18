@@ -1,3 +1,12 @@
+local oil_hidden_names = {
+  ['.DS_Store'] = true,
+  ['.git'] = true,
+  ['.nx'] = true,
+  ['.astro'] = true,
+  ['.idea'] = true,
+  ['.vscode'] = true
+}
+
 return {
   { 'christianchiarulli/nvcode-color-schemes.vim', priority = 1000 },
   { 'nvim-lua/plenary.nvim' },
@@ -44,6 +53,9 @@ return {
       },
       view_options = {
         show_hidden = true,
+        is_always_hidden = function(name, bufnr)
+          return oil_hidden_names[name]
+        end
       }
     },
     -- Optional dependencies
