@@ -77,5 +77,6 @@ return {
       keymap("n", "<leader>df", genghis.trashFile) -- default: "$HOME/.Trash".
       keymap("x", "<leader>x", genghis.moveSelectionToNewFile)
     end
-  }
+  },
+  { "shortcuts/no-neck-pain.nvim", opts = { width = 110, autocmds = { enableOnVimEnter = true } } }
 }
