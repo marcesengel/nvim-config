@@ -15,4 +15,4 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup("plugins")
 
-vim.cmd('colorscheme nvcode')
+vim.cmd.colorscheme "vscode"

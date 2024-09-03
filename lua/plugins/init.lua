@@ -8,9 +8,9 @@ local oil_hidden_names = {
 }
 
 return {
-  { 'christianchiarulli/nvcode-color-schemes.vim', priority = 1000 },
+  { 'Mofiqul/vscode.nvim',         priority = 1000, opts = {} },
   { 'nvim-lua/plenary.nvim' },
-  { 'nvim-tree/nvim-web-devicons',                 config = true },
+  { 'nvim-tree/nvim-web-devicons', opts = {} },
   {
     'rhysd/git-messenger.vim',
     cmd = 'GitMessenger',
@@ -22,17 +22,17 @@ return {
     'windwp/nvim-ts-autotag',
     dependencies = {
       'nvim-treesitter/nvim-treesitter' },
-    config = true
+    opts = {}
   },
   { 'mbbill/undotree',            keys = { { '<leader>u', vim.cmd.UndotreeToggle } } },
   { 'tpope/vim-fugitive',         keys = { { '<leader>gs', vim.cmd.Git } } },
   {
     'nvim-lualine/lualine.nvim',
-    opts = {},
+    opts = { options = { theme = 'vscode' } },
     dependencies = {
-      'nvim-tree/nvim-web-devicons' }
+      'nvim-tree/nvim-web-devicons', 'Mofiqul/vscode.nvim' }
   },
-  { 'lewis6991/gitsigns.nvim',            config = true,                      tag = 'release' },
+  { 'lewis6991/gitsigns.nvim',            opts = {},                          tag = 'release' },
   {
     'kylechui/nvim-surround',
     version = '*',
