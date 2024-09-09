@@ -8,7 +8,7 @@ local oil_hidden_names = {
 }
 
 return {
-  { 'Mofiqul/vscode.nvim',         priority = 1000, opts = {} },
+  { 'folke/tokyonight.nvim',       priority = 1000, opts = {} },
   { 'nvim-lua/plenary.nvim' },
   { 'nvim-tree/nvim-web-devicons', opts = {} },
   {
@@ -28,9 +28,9 @@ return {
   { 'tpope/vim-fugitive',         keys = { { '<leader>gs', vim.cmd.Git } } },
   {
     'nvim-lualine/lualine.nvim',
-    opts = { options = { theme = 'vscode' } },
+    opts = { options = { theme = 'tokyonight' } },
     dependencies = {
-      'nvim-tree/nvim-web-devicons', 'Mofiqul/vscode.nvim' }
+      'nvim-tree/nvim-web-devicons', 'folke/tokyonight.nvim' }
   },
   { 'lewis6991/gitsigns.nvim',            opts = {},                          tag = 'release' },
   {
