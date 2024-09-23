@@ -32,7 +32,7 @@ return {
     dependencies = {
       'nvim-tree/nvim-web-devicons', 'folke/tokyonight.nvim' }
   },
-  { 'lewis6991/gitsigns.nvim',            opts = {},                          tag = 'release' },
+  { 'lewis6991/gitsigns.nvim',            opts = {} },
   {
     'kylechui/nvim-surround',
     version = '*',
