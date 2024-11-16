@@ -172,6 +172,8 @@ return {
         }
       })
 
+      lspconfig.tailwindcss.setup({})
+
       lsp.setup()
 
       vim.diagnostic.config({
