@@ -81,6 +81,13 @@ return {
 
       local lspconfig = require("lspconfig")
 
+      -- ts is handled by typescript-tools
+      lspconfig.tsserver.setup({
+        autostart = false,
+        single_file_support = false,
+        root_dir = nil
+      })
+
       -- eslint
       local eslint_root_file = {
         '.eslintrc',
@@ -252,5 +259,11 @@ return {
         dependencies = { 'nvim-lua/plenary.nvim' }
       },
     }
+  },
+  {
+    "pmizio/typescript-tools.nvim",
+    branch = "feature/221-v2",
+    dependencies = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
+    opts = {},
   }
 }
