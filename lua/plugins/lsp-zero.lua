@@ -10,6 +10,7 @@ return {
       lsp.ensure_installed({
         'tsserver',
         'rust_analyzer',
+        'cypher_ls',
       })
 
       -- Fix Undefined global 'vim'
@@ -173,6 +174,7 @@ return {
       })
 
       lspconfig.tailwindcss.setup({})
+      lspconfig.cypher_ls.setup({})
 
       lsp.setup()
 
