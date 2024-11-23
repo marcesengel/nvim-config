@@ -11,6 +11,7 @@ return {
         'tsserver',
         'rust_analyzer',
         'cypher_ls',
+        'tailwindcss'
       })
 
       -- Fix Undefined global 'vim'
