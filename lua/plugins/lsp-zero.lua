@@ -264,6 +264,13 @@ return {
     "pmizio/typescript-tools.nvim",
     branch = "feature/221-v2",
     dependencies = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
-    opts = {},
+    opts = {
+      settings = {
+        expose_as_code_action = { "add_missing_imports", "remove_unused_imports" },
+        tsserver_file_preferences = {
+          importModuleSpecifierPreference = 'project-relative'
+        }
+      }
+    },
   }
 }
